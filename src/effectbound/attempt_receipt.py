@@ -10,7 +10,7 @@ import json
 import os
 import sqlite3
 
-import checkout_service
+from . import checkout_service
 
 
 def commit_and_stop(store_path, receipt_path, operation_id, effect_id, content) -> dict:

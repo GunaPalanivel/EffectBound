@@ -35,21 +35,21 @@ docker compose -p changeguard up -d
 docker inspect changeguard-falkordb --format "{{.Image}}"
 ```
 
-If `.venv` is missing, create it and install `requirements.txt` with the venv Python. On Windows the interpreter is `.venv\Scripts\python.exe`. The install command is that interpreter with `-m pip install -r requirements.txt`.
+If `.venv` is missing, create it and install this package with the venv Python. On Windows the interpreter is `.venv\Scripts\python.exe`.
 
 ```
 python -m venv .venv
-.venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe -m pip install -e .
 ```
 
 ```
-.venv\Scripts\python.exe -c "import pins; print(pins.IMAGE_DIGEST)"
+.venv\Scripts\python.exe -c "from effectbound.pins import IMAGE_DIGEST; print(IMAGE_DIGEST)"
 ```
 
 ```
-.venv\Scripts\python.exe var\serve_screen.py
+.venv\Scripts\python.exe -m effectbound.serve
 ```
 
 The screen URL is `http://127.0.0.1:8767/screen?operation_id=screen-op`.
 
-`serve_screen.py` plants that one checkout.
+`effectbound.serve` plants that one checkout.

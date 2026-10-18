@@ -37,7 +37,7 @@ MERGE (attempt)-[:OF]->(op)
 
 
 def admit(db, *, operation_id, effect_id, operator_id, tenant_id, choice, evidence) -> dict:
-    from evidence import derive
+    from .evidence import derive
 
     edge = _edge(db, operation_id)
     derived = derive(evidence)
@@ -86,7 +86,7 @@ def run(
     tenant_id,
     evidence,
 ) -> dict:
-    from evidence import derive
+    from .evidence import derive
 
     edge = _edge(db, operation_id)
     derived = derive(evidence)
@@ -94,7 +94,7 @@ def run(
     probe = derived["probe"]
     approval = _approval(db, "approval-" + operation_id)
     if _matches(approval, operator_id, tenant_id, effect_id, edge, state):
-        from gate import execute
+        from .gate import execute
 
         result = execute(
             db,

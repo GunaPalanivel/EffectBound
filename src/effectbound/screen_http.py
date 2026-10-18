@@ -15,9 +15,9 @@ from urllib.parse import parse_qs, urlsplit
 from redis.exceptions import ConnectionError as RedisConnectionError
 from redis.exceptions import TimeoutError as RedisTimeoutError
 
-from ingest import open_db
-from screen_page import render
-from screen_view import view
+from .ingest import open_db
+from .screen_page import render
+from .screen_view import view
 
 _CONNECTION_ERRORS = (RedisConnectionError, RedisTimeoutError, TimeoutError, OSError)
 

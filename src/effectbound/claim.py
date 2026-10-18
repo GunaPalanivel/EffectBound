@@ -10,7 +10,7 @@ from __future__ import annotations
 import os
 import sqlite3
 
-import checkout_service
+from . import checkout_service
 
 GRAPH = "changeguard_checkout"
 

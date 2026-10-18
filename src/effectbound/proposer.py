@@ -13,7 +13,7 @@ MAX_TURNS = 4
 def propose(db, operation_id) -> dict:
     """Return the contract-edge policy_action. Probe only when visibility is partial."""
 
-    from mcp_graph import probe, read_contract_edge, read_operation
+    from .mcp_graph import probe, read_contract_edge, read_operation
 
     tools = []
     operation = _read(tools, "read_operation", read_operation, db, operation_id)

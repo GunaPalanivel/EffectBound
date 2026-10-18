@@ -1,21 +1,18 @@
-"""Start the screen for the Phase 7 browser cases. Not a product module."""
+"""Start the screen for the Phase 7 browser cases."""
 
 from __future__ import annotations
 
 import json
-import sys
 import threading
 import time
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from .checkout_service import commit, init_store
+from .checkout_service import serve as health_serve
+from .ingest import ingest_effect, open_db, reset_graph
+from .screen_http import serve
 
-from checkout_service import commit, init_store
-from checkout_service import serve as health_serve
-from ingest import ingest_effect, open_db, reset_graph
-from screen_http import serve
-
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 VAR = ROOT / "var"
 STORE = VAR / "screen.sqlite"
 MANIFEST = VAR / "screen-manifest.json"

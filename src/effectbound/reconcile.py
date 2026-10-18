@@ -9,8 +9,8 @@ from __future__ import annotations
 
 import sqlite3
 
-import checkout_service
-from contracts import ACTIONS
+from . import checkout_service
+from .contracts import ACTIONS
 
 
 def choose(facts: dict) -> dict:
