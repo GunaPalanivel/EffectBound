@@ -1,0 +1,12 @@
+services:
+  falkordb:
+    image: falkordb/falkordb@sha256:107455e862a824e45e8e9f5a7fbfdf5e00a08b14e13eae2577c72fd9e3f59ba6
+    container_name: changeguard-falkordb
+    ports:
+      - "6379:6379"
+    volumes:
+      - changeguard-falkor:/var/lib/falkordb/data
+    restart: "no"
+
+volumes:
+  changeguard-falkor:
